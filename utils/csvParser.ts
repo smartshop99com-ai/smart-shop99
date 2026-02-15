@@ -71,8 +71,15 @@ export const parseCSVToProducts = (csvText: string): Product[] => {
 export const loadProductsFromCSV = async (): Promise<Product[]> => {
   try {
     const response = await fetch('/PRODUCT.CSV.csv');
+    if (!response.ok) {
+      console.error(`CSV fetch failed with status ${response.status}`);
+      return [];
+    }
     const csvText = await response.text();
-    return parseCSVToProducts(csvText);
+    console.log('CSV loaded successfully, parsing...');
+    const products = parseCSVToProducts(csvText);
+    console.log('Parsed products:', products);
+    return products;
   } catch (error) {
     console.error('Error loading CSV:', error);
     return [];
