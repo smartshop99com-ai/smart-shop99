@@ -131,6 +131,7 @@ const App: React.FC = () => {
       <main className="container mx-auto px-4 py-4 flex-grow">
         {isWishlistOpen ? (
           <Wishlist 
+            products={products}
             wishlistIds={wishlistItems}
             onBack={() => setIsWishlistOpen(false)}
             onSelect={(p) => {
@@ -196,6 +197,7 @@ const App: React.FC = () => {
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         items={cartItems}
+        products={products}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
       />

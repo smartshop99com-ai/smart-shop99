@@ -1,21 +1,22 @@
 
 import React from 'react';
 import { Product, CartItem } from '../types';
-import { SHOP_WHATSAPP_NUMBER, SHOP_NAME, PRODUCTS } from '../constants';
+import { SHOP_WHATSAPP_NUMBER, SHOP_NAME } from '../constants';
 
 interface CartProps {
   isOpen: boolean;
   onClose: () => void;
   items: CartItem[];
+  products: Product[];
   onUpdateQuantity: (productId: number, delta: number) => void;
   onRemoveItem: (productId: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem }) => {
+const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, products, onUpdateQuantity, onRemoveItem }) => {
   if (!isOpen) return null;
 
   const cartDetails = items.map(item => {
-    const product = PRODUCTS.find(p => p.id === item.productId)!;
+    const product = products.find(p => p.id === item.productId)!;
     return {
       product,
       quantity: item.quantity,

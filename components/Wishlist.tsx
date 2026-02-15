@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Product } from '../types';
-import { PRODUCTS } from '../constants';
 import ProductCard from './ProductCard';
 
 interface WishlistProps {
+  products: Product[];
   wishlistIds: number[];
   onBack: () => void;
   onSelect: (product: Product) => void;
@@ -13,13 +13,14 @@ interface WishlistProps {
 }
 
 const Wishlist: React.FC<WishlistProps> = ({ 
+  products,
   wishlistIds, 
   onBack, 
   onSelect, 
   onAddToCart, 
   toggleWishlist 
 }) => {
-  const wishlistProducts = PRODUCTS.filter(p => wishlistIds.includes(p.id));
+  const wishlistProducts = products.filter(p => wishlistIds.includes(p.id));
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
