@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SHOP_NAME, SHOP_ADDRESS, SHOP_MOBILE } from '../constants';
+import { SHOP_NAME, SHOP_ADDRESS, SHOP_MOBILE, SHOP_WHATSAPP_NUMBER } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -28,10 +28,19 @@ const Footer: React.FC = () => {
               <i className="fa-solid fa-location-dot mr-2 text-blue-500"></i>
               {SHOP_ADDRESS}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-sm mb-3">
               <i className="fa-solid fa-phone mr-2 text-blue-500"></i>
               {SHOP_MOBILE}
             </p>
+            <a 
+              href={`https://wa.me/${SHOP_WHATSAPP_NUMBER}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-green-600 text-sm hover:text-green-700 transition-colors hover:underline"
+            >
+              <i className="fa-brands fa-whatsapp text-lg"></i>
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
         <div className="border-t pt-8 text-center text-gray-400 text-xs">

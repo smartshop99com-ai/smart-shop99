@@ -12,6 +12,7 @@ import { PRODUCTS, SHOP_WHATSAPP_NUMBER } from './constants';
 import { Category, Product, CartItem } from './types';
 import Papa from 'papaparse';
 import { loadProductsFromCSV } from './utils/csvParser';
+import { searchProducts } from './utils/searchUtils';
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -66,11 +67,7 @@ const App: React.FC = () => {
   }, [wishlistItems]);
 
   const filteredProducts = useMemo(() => {
-    return products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = activeCategory === Category.ALL || product.category === activeCategory;
-      return matchesSearch && matchesCategory;
-    });
+    return searchProducts(products, searchTerm, activeCategory);
   }, [searchTerm, activeCategory, products]);
 
   const handleAddToCart = (productId: number) => {
