@@ -68,17 +68,17 @@ const SuggestionForm: React.FC = () => {
   };
 
   return (
-    <section className="bg-blue-50 py-12 px-4 rounded-3xl container mx-auto my-12">
+    <section className="bg-blue-50 py-6 px-4 rounded-3xl container mx-auto my-6">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Don't see what you want?</h2>
-        <p className="text-gray-600 mb-8">Suggest a product and we'll try to get it in stock for you!</p>
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">Don't see what you want?</h2>
+        <p className="text-gray-600 mb-6 text-sm">Suggest a product and we'll try to get it in stock for you!</p>
         
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-blue-100">
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-blue-100">
           <textarea
             value={suggestion}
             onChange={(e) => setSuggestion(e.target.value)}
             placeholder="What items would you like us to add? (e.g. 5L Water Bottle, specific brand of snacks...)"
-            className="w-full p-4 border border-gray-200 rounded-xl mb-4 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all resize-none"
+            className="w-full p-3 border border-gray-200 rounded-xl mb-4 h-24 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all resize-none text-sm"
           ></textarea>
           
           <div className="flex flex-col md:flex-row gap-4 items-center">
