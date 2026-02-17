@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SHOP_NAME, SHOP_WHATSAPP_NUMBER, SHOP_ADDRESS, SHOP_MOBILE } from '../constants';
+import { SHOP_NAME, SHOP_ADDRESS, SHOP_MOBILE } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -38,16 +38,6 @@ const Footer: React.FC = () => {
           © {new Date().getFullYear()} {SHOP_NAME}. All rights reserved.
         </div>
       </div>
-
-      {/* Floating WhatsApp Button */}
-      <a
-        href={`https://wa.me/${SHOP_WHATSAPP_NUMBER}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition-all hover:scale-110 active:scale-90"
-      >
-        <i className="fa-brands fa-whatsapp"></i>
-      </a>
     </footer>
   );
 };
